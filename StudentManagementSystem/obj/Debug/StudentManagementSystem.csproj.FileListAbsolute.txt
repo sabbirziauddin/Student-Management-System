@@ -1,0 +1,8 @@
+C:\Users\ziauddin\documents\visual studio 2013\Projects\StudentManagementSystem\StudentManagementSystem\bin\StudentManagementSystem.dll.config
+C:\Users\ziauddin\documents\visual studio 2013\Projects\StudentManagementSystem\StudentManagementSystem\bin\StudentManagementSystem.dll
+C:\Users\ziauddin\documents\visual studio 2013\Projects\StudentManagementSystem\StudentManagementSystem\bin\StudentManagementSystem.pdb
+C:\Users\ziauddin\documents\visual studio 2013\Projects\StudentManagementSystem\StudentManagementSystem\bin\EntityFramework.dll
+C:\Users\ziauddin\documents\visual studio 2013\Projects\StudentManagementSystem\StudentManagementSystem\bin\EntityFramework.xml
+C:\Users\ziauddin\documents\visual studio 2013\Projects\StudentManagementSystem\StudentManagementSystem\obj\Debug\StudentManagementSystem.dll
+C:\Users\ziauddin\documents\visual studio 2013\Projects\StudentManagementSystem\StudentManagementSystem\obj\Debug\StudentManagementSystem.pdb
+C:\Users\ziauddin\documents\visual studio 2013\Projects\StudentManagementSystem\StudentManagementSystem\obj\Debug\StudentManagementSystem.csprojResolveAssemblyReference.cache

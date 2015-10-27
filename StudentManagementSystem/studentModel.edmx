@@ -1,0 +1,142 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+    <Schema Namespace="SMSMODEL.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2008" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="StdInfo">
+          <Key>
+            <PropertyRef Name="idNumber" />
+          </Key>
+          <Property Name="idNumber" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="name" Type="varchar" MaxLength="50" />
+          <Property Name="fatherName" Type="varchar" MaxLength="50" />
+          <Property Name="motherName" Type="varchar" MaxLength="50" />
+          <Property Name="address" Type="varchar" MaxLength="50" />
+          <Property Name="contactNo" Type="int" />
+          <Property Name="Email" Type="varchar" MaxLength="50" />
+          <Property Name="DeppartMent" Type="varchar" MaxLength="50" />
+        </EntityType>
+        <!--Errors Found During Generation:
+warning 6002: The table/view 'SSM.dbo.stdmarksDetails' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+        <EntityType Name="stdmarksDetails">
+          <Key>
+            <PropertyRef Name="idNumber" />
+          </Key>
+          <Property Name="idNumber" Type="int" Nullable="false" />
+          <Property Name="name" Type="varchar" MaxLength="50" />
+          <Property Name="DeppartMent" Type="varchar" MaxLength="50" />
+          <Property Name="Email" Type="varchar" MaxLength="50" />
+          <Property Name="grade" Type="varchar" MaxLength="50" />
+          <Property Name="cgpa" Type="float" />
+          <Property Name="courses" Type="varchar" MaxLength="50" />
+          <Property Name="semester" Type="varchar" MaxLength="50" />
+        </EntityType>
+        <EntityContainer Name="SMSMODELStoreContainer">
+          <EntitySet Name="StdInfo" EntityType="Self.StdInfo" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="stdmarksDetails" EntityType="Self.stdmarksDetails" store:Type="Views" store:Schema="dbo">
+            <DefiningQuery>SELECT 
+[stdmarksDetails].[idNumber] AS [idNumber], 
+[stdmarksDetails].[name] AS [name], 
+[stdmarksDetails].[DeppartMent] AS [DeppartMent], 
+[stdmarksDetails].[Email] AS [Email], 
+[stdmarksDetails].[grade] AS [grade], 
+[stdmarksDetails].[cgpa] AS [cgpa], 
+[stdmarksDetails].[courses] AS [courses], 
+[stdmarksDetails].[semester] AS [semester]
+FROM [dbo].[stdmarksDetails] AS [stdmarksDetails]</DefiningQuery>
+          </EntitySet>
+        </EntityContainer>
+      </Schema></edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="SMSMODEL" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityContainer Name="SMSentities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="studinfoes" EntityType="SMSMODEL.studinfo" />
+          <EntitySet Name="stdmarksDetails" EntityType="SMSMODEL.stdmarksDetail" />
+        </EntityContainer>
+        <EntityType Name="studinfo">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Nullable="false" annotation:StoreGeneratedPattern="Identity" Type="Int32" />
+          <Property Name="stuname" Type="String" MaxLength="50" Unicode="false" FixedLength="false" />
+          <Property Name="fathername" Type="String" MaxLength="50" Unicode="false" FixedLength="false" />
+          <Property Name="mothername" Type="String" MaxLength="50" Unicode="false" FixedLength="false" />
+          <Property Name="address" Type="String" MaxLength="50" Unicode="false" FixedLength="false" />
+          <Property Name="contactNo" Type="Int32" />
+          <Property Name="email" Type="String" MaxLength="50" Unicode="false" FixedLength="false" />
+          <Property Name="DepartMent" Type="String" MaxLength="50" Unicode="false" FixedLength="false" />
+        </EntityType>
+        <EntityType Name="stdmarksDetail">
+          <Key>
+            <PropertyRef Name="idNumber" />
+          </Key>
+          <Property Name="idNumber" Type="Int32" Nullable="false" />
+          <Property Name="name" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="DeppartMent" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Email" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="grade" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="cgpa" Type="Double" />
+          <Property Name="courses" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="semester" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+        </EntityType>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="SMSMODELStoreContainer" CdmEntityContainer="SMSentities">
+          <EntitySetMapping Name="studinfoes">
+            <EntityTypeMapping TypeName="IsTypeOf(SMSMODEL.studinfo)">
+              <MappingFragment StoreEntitySet="StdInfo">
+                <ScalarProperty Name="DepartMent" ColumnName="DeppartMent" />
+                <ScalarProperty Name="email" ColumnName="Email" />
+                <ScalarProperty Name="mothername" ColumnName="motherName" />
+                <ScalarProperty Name="fathername" ColumnName="fatherName" />
+                <ScalarProperty Name="Id" ColumnName="idNumber" />
+                <ScalarProperty Name="contactNo" ColumnName="contactNo" />
+                <ScalarProperty Name="address" ColumnName="address" />
+                <ScalarProperty Name="stuname" ColumnName="name" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="stdmarksDetails">
+            <EntityTypeMapping TypeName="SMSMODEL.stdmarksDetail">
+              <MappingFragment StoreEntitySet="stdmarksDetails">
+                <ScalarProperty Name="semester" ColumnName="semester" />
+                <ScalarProperty Name="courses" ColumnName="courses" />
+                <ScalarProperty Name="cgpa" ColumnName="cgpa" />
+                <ScalarProperty Name="grade" ColumnName="grade" />
+                <ScalarProperty Name="Email" ColumnName="Email" />
+                <ScalarProperty Name="DeppartMent" ColumnName="DeppartMent" />
+                <ScalarProperty Name="name" ColumnName="name" />
+                <ScalarProperty Name="idNumber" ColumnName="idNumber" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="true" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="true" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>

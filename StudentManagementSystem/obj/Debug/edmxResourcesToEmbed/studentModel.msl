@@ -1,0 +1,33 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="SMSMODELStoreContainer" CdmEntityContainer="SMSentities">
+    <EntitySetMapping Name="studinfoes">
+      <EntityTypeMapping TypeName="IsTypeOf(SMSMODEL.studinfo)">
+        <MappingFragment StoreEntitySet="StdInfo">
+          <ScalarProperty Name="DepartMent" ColumnName="DeppartMent" />
+          <ScalarProperty Name="email" ColumnName="Email" />
+          <ScalarProperty Name="mothername" ColumnName="motherName" />
+          <ScalarProperty Name="fathername" ColumnName="fatherName" />
+          <ScalarProperty Name="Id" ColumnName="idNumber" />
+          <ScalarProperty Name="contactNo" ColumnName="contactNo" />
+          <ScalarProperty Name="address" ColumnName="address" />
+          <ScalarProperty Name="stuname" ColumnName="name" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="stdmarksDetails">
+      <EntityTypeMapping TypeName="SMSMODEL.stdmarksDetail">
+        <MappingFragment StoreEntitySet="stdmarksDetails">
+          <ScalarProperty Name="semester" ColumnName="semester" />
+          <ScalarProperty Name="courses" ColumnName="courses" />
+          <ScalarProperty Name="cgpa" ColumnName="cgpa" />
+          <ScalarProperty Name="grade" ColumnName="grade" />
+          <ScalarProperty Name="Email" ColumnName="Email" />
+          <ScalarProperty Name="DeppartMent" ColumnName="DeppartMent" />
+          <ScalarProperty Name="name" ColumnName="name" />
+          <ScalarProperty Name="idNumber" ColumnName="idNumber" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping>
